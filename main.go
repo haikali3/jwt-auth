@@ -18,17 +18,19 @@ func main() {
 	router.Use(gin.Recovery())
 
 	routes.AuthRoutes(router)
-	routers.UserRoutes(router)
+	routes.UserRoutes(router)
 
-	router GET("/api/v1", func(c *gin.Context) {
+	router.GET("/api/v1", func(c *gin.Context) {
 		c.JSON(200, gin.H{
 			"message": "success: Access granted for api-1",
 		})
 	})
 
-	router GET("/api/v1", func(c *gin.Context) {
+	router.GET("/api/v1", func(c *gin.Context) {
 		c.JSON(200, gin.H{
 			"message": "success: Access granted for api-2",
 		})
 	})
+
+	router.Run(":" + port)
 }
