@@ -11,7 +11,7 @@ func UserRouters(incomingRoutes *gin.Engine) {
 	// incomingRoutes.POST("users/signup", controller.Signup())
 	// incomingRoutes.POST("users/login", controller.Login())
 	incomingRoutes.GET("users", middleware.AuthMiddleware(), controller.GetUsers())
-	incomingRoutes.GET("users/:id", middleware.AuthMiddleware(), controller.GetUser())
+	incomingRoutes.GET("users/:user_id", middleware.AuthMiddleware(), controller.GetUser())
 	// incomingRoutes.PUT("users/:id", middleware.AuthMiddleware(), controller.UpdateUser())
 	// incomingRoutes.DELETE("users/:id", middleware.AuthMiddleware(), controller.DeleteUser())
 
